@@ -2,65 +2,89 @@
 
 import '../styles/Sidebar.css'
 
-type SidebarProps = {
+type Props = {
   currentCoords: {
-    lng: number
-    lat: number
-    zoom: number
-  }
-  resetView: () => void
-  toggle3D: () => void
-  toggleWaterAreas: () => void
-  toggle3DBuildings: () => void
-  togglePixelatedOverlay: () => void
-  showWaterAreas: boolean
-  show3DBuildings: boolean
-  showPixelatedOverlay: boolean
-}
+    lng: number;
+    lat: number;
+    zoom: number;
+  };
+  resetView: () => void;
+  toggle3D: () => void;
+  toggleWaterAreas: () => void;
+  toggle3DBuildings: () => void;
+  togglePixelatedOverlay: () => void;
+  showWaterAreas: boolean;
+  show3DBuildings: boolean;
+  showPixelatedOverlay: boolean;
+};
 
-export default function Sidebar({
-  currentCoords,
-  resetView,
-  toggle3D,
-  toggleWaterAreas,
-  toggle3DBuildings,
+const Sidebar = ({ 
+  currentCoords, 
+  resetView, 
+  toggle3D, 
+  toggleWaterAreas, 
+  toggle3DBuildings, 
   togglePixelatedOverlay,
   showWaterAreas,
   show3DBuildings,
-  showPixelatedOverlay
-}: SidebarProps) {
+  showPixelatedOverlay 
+}: Props) => {
+  const { lng, lat, zoom } = currentCoords;
+
   return (
     <div className="sidebar">
       <div className="sidebar-title">Metro Manila Dam Risk Assessment</div>
-      <div>Longitude: {currentCoords.lng.toFixed(6)}</div>
-      <div>Latitude: {currentCoords.lat.toFixed(6)}</div>
-      <div>Zoom: {currentCoords.zoom.toFixed(2)}</div>
+      
+      <div className="coordinates-section">
+        <div>Longitude: {lng.toFixed(6)}</div>
+        <div>Latitude: {lat.toFixed(6)}</div>
+        <div>Zoom: {zoom.toFixed(2)}</div>
+      </div>
 
-      <div className="controls-container">
-        <button onClick={resetView} className="control-button">Reset View</button>
-        <button onClick={toggle3D} className="control-button">Toggle 3D</button>
-
-        <button
-          onClick={toggleWaterAreas}
-          className={`control-button ${showWaterAreas ? 'active' : ''}`}
-        >
-          Water Areas
+      <div className="controls-section">
+        <h3>Map Controls</h3>
+        
+        <button onClick={resetView} className="control-button">
+          Reset View
         </button>
-
-        <button
-          onClick={toggle3DBuildings}
-          className={`control-button ${show3DBuildings ? 'active' : ''}`}
-        >
-          3D Buildings
+        
+        <button onClick={toggle3D} className="control-button">
+          Toggle 3D View
         </button>
-
-        <button
-          onClick={togglePixelatedOverlay}
-          className={`control-button ${showPixelatedOverlay ? 'active' : ''}`}
-        >
-          Dam Risk Grid
-        </button>
+        
+        <div className="layer-toggles">
+          <h4>Layers</h4>
+          
+          <label className="toggle-item">
+            <input 
+              type="checkbox" 
+              checked={showWaterAreas} 
+              onChange={toggleWaterAreas}
+            />
+            <span>Water Areas</span>
+          </label>
+          
+          <label className="toggle-item">
+            <input 
+              type="checkbox" 
+              checked={show3DBuildings} 
+              onChange={toggle3DBuildings}
+            />
+            <span>3D Buildings</span>
+          </label>
+          
+          <label className="toggle-item">
+            <input 
+              type="checkbox" 
+              checked={showPixelatedOverlay} 
+              onChange={togglePixelatedOverlay}
+            />
+            <span>Risk Grid Overlay</span>
+          </label>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
+
+export default Sidebar;
