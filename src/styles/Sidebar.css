@@ -425,6 +425,46 @@
   transform: translateX(20px);
 }
 
+.coordinates-display {
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+}
+
+.coordinates-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #0ea5e9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.coordinate-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #475569;
+}
+
+.coordinate-item:last-child {
+  margin-bottom: 0;
+}
+
+.coordinate-label {
+  font-weight: 500;
+}
+
+.coordinate-value {
+  font-weight: 600;
+  color: #1e293b;
+}
+
 /* Custom scrollbar */
 .sidebar::-webkit-scrollbar {
   width: 6px;
@@ -460,3 +500,4 @@
     grid-template-columns: 1fr;
   }
 }
+

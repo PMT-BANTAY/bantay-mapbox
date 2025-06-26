@@ -47,26 +47,6 @@ const Legend = () => {
         </div>
 
         <div className="legend-section">
-          <strong>Dam Risk Assessment:</strong>
-          <div className="legend-item">
-            <span style={{backgroundColor: '#ff0000', width: '12px', height: '12px', display: 'inline-block', marginRight: '5px'}}></span>
-            High Risk (0-5km)
-          </div>
-          <div className="legend-item">
-            <span style={{backgroundColor: '#ff8800', width: '12px', height: '12px', display: 'inline-block', marginRight: '5px'}}></span>
-            Medium-High Risk (5-10km)
-          </div>
-          <div className="legend-item">
-            <span style={{backgroundColor: '#ffff00', width: '12px', height: '12px', display: 'inline-block', marginRight: '5px'}}></span>
-            Medium Risk (10-15km)
-          </div>
-          <div className="legend-item">
-            <span style={{backgroundColor: '#00ff00', width: '12px', height: '12px', display: 'inline-block', marginRight: '5px'}}></span>
-            Low Risk (15km+)
-          </div>
-        </div>
-
-        <div className="legend-section">
           <strong>Grid Specifications:</strong>
           <div className="legend-item">
             <small>• 99x99 grid per dam</small>
