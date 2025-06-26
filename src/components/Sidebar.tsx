@@ -203,6 +203,22 @@ const Sidebar = ({
           </div>
           
           <div className={`map-controls-content ${mapControlsExpanded ? 'visible' : ''}`}>
+            <div className="coordinates-display">
+              <div className="coordinates-title">Current Map Position</div>
+              <div className="coordinate-item">
+                <span className="coordinate-label">Longitude:</span>
+                <span className="coordinate-value">{currentCoords.lng.toFixed(6)}</span>
+              </div>
+              <div className="coordinate-item">
+                <span className="coordinate-label">Latitude:</span>
+                <span className="coordinate-value">{currentCoords.lat.toFixed(6)}</span>
+              </div>
+              <div className="coordinate-item">
+                <span className="coordinate-label">Zoom Level:</span>
+                <span className="coordinate-value">{currentCoords.zoom.toFixed(2)}</span>
+              </div>
+            </div>
+            
             <div className="map-control-group">
               <div className="map-control-group-title">View Controls</div>
               <button className="map-control-button" onClick={resetView}>
